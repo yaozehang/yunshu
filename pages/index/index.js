@@ -1,20 +1,35 @@
 //index.js
 //获取应用实例
+import {fetch} from "../../utils/util.js"
 const app = getApp()
 
 Page({
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    indicatorDots: false,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000
+    swiperData: [],
+    mainContent: [],
+    indicatorDots: true,
+    autoplay: true,
+    interval: 3000,
+    duration: 300,
+    circular: true
   },
-  onLoad: () {
+  onLoad() {
     this.getData()
+    this.getContent()
+  },
+  getData(){
+    fetch.get("/swiper").then(res=>{
+      this.setData({
+        swiperData : res.data
+      })
+    })
+  },
+  getContent(){
+    fetch.get('/category/books').then(res =>{
+      console.log(res),
+      this.setData({
+        mainContent:res.data
+      })
+    })
   }
 })
