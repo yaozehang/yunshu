@@ -11,25 +11,37 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 300,
-    circular: true
+    circular: true,
+    isloading: false        
   },
   onLoad() {
     this.getData()
     this.getContent()
   },
   getData(){
+    this.setData({
+      isloading: true          
+    })
     fetch.get("/swiper").then(res=>{
       this.setData({
-        swiperData : res.data
+        swiperData : res.data,
+        isloading: false        
       })
     })
   },
   getContent(){
     fetch.get('/category/books').then(res =>{
-      console.log(res),
+      console.log(res)
       this.setData({
         mainContent:res.data
       })
+    })
+  },
+  jumpBook(event){
+    console.log(event)
+    let id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url:`/pages/details/details?id=${id}`,
     })
   }
 })

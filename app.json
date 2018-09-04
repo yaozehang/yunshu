@@ -1,12 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/details/details",
+    "pages/catalog/catalog",
+    "pages/book/book"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "IT随身看",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 }
