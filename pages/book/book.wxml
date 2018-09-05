@@ -1,28 +1,27 @@
 <!--pages/book/book.wxml-->
 <view class="book">
   <image src='/static/img/loading.svg' class="loading" wx:if="{{isloading}}"></image>
-    <view wx:else class='book-content'>
-      <import src="/towxml/entry.wxml"/>
-      <template is="entry" data="{{...article}}"/>
-    </view>
+  <view wx:else class='book-content' style="{{'font-size:'+font+'rpx'}}">
+    <wemark md="{{article}}" link highlight type="wemark" ></wemark>
+  </view>
 
-    <view class='mask' wx:if="{{isShow}}" bindtap="toggleCatalog">
-    </view>
-
-    <scroll-view scroll-y class="catalog-menu" wx:if="{{isShow}}">
-      <view class='catalog-item' wx:for="{{catalog}}"wx:key="{{index}}" bindtap="handleGet" data-id="{{item._id}}">
+  <view class='mask' wx:if="{{isShow}}" bindtap="toggleCatalog">
+  </view>
+  <scroll-view scroll-y class="catalog-menu {{isShow ? 'active':''}}" >
+      <view class='catalog-item' wx:for="{{catalog}}" wx:key="{{index}}" bindtap="handleGet" data-id="{{item._id}}">
         {{item.title}}
       </view>
-    </scroll-view>
+  </scroll-view>
 
 
 
-    <!-- 菜单 -->
-    <view class="menu">
-      <view class="iconfont icon-fanhuishangyizhang"></view>
-      <view class="iconfont icon-mulu" bindtap="toggleCatalog"></view>
-      <view class="iconfont icon-yueduye_zitizengda"></view>
-      <view class="iconfont icon-yueduye_zitijianxiao"></view>
-      <view class="iconfont icon-xiayizhang"></view>
-    </view>
+
+  <!-- 菜单 -->
+  <view class="menu">
+    <view class="iconfont icon-fanhuishangyizhang" bindtap='handlePrev'></view>
+    <view class="iconfont icon-mulu" bindtap="toggleCatalog"></view>
+    <view class="iconfont icon-yueduye_zitizengda" bindtap='handleAdd'></view>
+    <view class="iconfont icon-yueduye_zitijianxiao" bindtap='handleRuduce'></view>
+    <view class="iconfont icon-xiayizhang"bindtap='handleNext'></view>
+  </view>
 </view>

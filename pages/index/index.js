@@ -12,7 +12,7 @@ Page({
     interval: 3000,
     duration: 300,
     circular: true,
-    isloading: false        
+    isloading: false,
   },
   onLoad() {
     this.getData()
@@ -25,7 +25,7 @@ Page({
     fetch.get("/swiper").then(res=>{
       this.setData({
         swiperData : res.data,
-        isloading: false        
+        isloading: false,        
       })
     })
   },
@@ -33,15 +33,20 @@ Page({
     fetch.get('/category/books').then(res =>{
       console.log(res)
       this.setData({
-        mainContent:res.data
+        mainContent:res.data,     
       })
     })
   },
   jumpBook(event){
-    console.log(event)
     let id = event.currentTarget.dataset.id;
     wx.navigateTo({
       url:`/pages/details/details?id=${id}`,
+    })
+  },
+  jumpdetails(event) {
+    let id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `/pages/details/details?id=${id}`,
     })
   }
 })

@@ -32,7 +32,7 @@
       <view class='title'>
         简介
       </view>
-      <view class='desc-main'>
+      <view class="desc-main {{isShow ? '' : 'desc-lv' }}" bindtap="isShow">
         {{bookData.data.desc}}
       </view>
     </view>
@@ -46,7 +46,7 @@
         </view>
       </view>
       <view class="catalog-r update-time">
-        更新于两天前
+        {{updateTime}}
       </view>
     </view>
     <view class="read-btn-wrap">
