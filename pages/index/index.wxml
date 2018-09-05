@@ -10,11 +10,11 @@
         </block>
       </swiper>
       <view class="main-content">
-        <view class="content-item" wx:for="{{mainContent}}" wx:key="{{index}}">
+        <view class="content-item" wx:for="{{mainContent}}" wx:for-item="i" wx:key="{{index}}">
           <view class="title">
-            {{item.title}}
+            {{i.title}}
           </view>
-          <view class="content" wx:for="{{item.books}}" wx:key="{{index}}"bindtap='jumpdetails'data-id="{{item._id}}">
+          <view class="content" wx:for="{{i.books}}" wx:key="{{index}}"bindtap='jumpdetails'data-id="{{item._id}}">
             <view class="box-l">
               <image src='{{item.img}}' class="img"></image>
             </view>
@@ -27,11 +27,8 @@
                 <text class="author-l">{{item.author}}</text>
                 <view class="author-r">
                   <text class="update">
-
-                  {{item.updateTime}}
-                  
                   </text>
-                  <text class="category">后端开发</text>
+                  <text class="category">{{i.title}}</text>
                   <text class="many">{{item.looknums}}人在看</text>
                 </view>
               </view>
