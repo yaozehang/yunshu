@@ -14,7 +14,7 @@
           <view class="title">
             {{i.title}}
           </view>
-          <view class="content" wx:for="{{i.books}}" wx:key="{{index}}"bindtap='jumpdetails'data-id="{{item._id}}">
+          <view class="content" wx:for="{{i.books}}" wx:key="{{index}}"bindtap='jumpBook'data-id="{{item._id}}">
             <view class="box-l">
               <image src='{{item.img}}' class="img"></image>
             </view>
@@ -37,5 +37,23 @@
         </view>
       </view>
   </view>
-  
 </view>
+
+  <!-- 菜单 -->
+<view class="menu">
+    <view class="iconfont icon-shouye"></view>
+    <view class="iconfont icon-yuedu" bindtap="handleRead"></view>
+    <view class="iconfont icon-gerenzhongxin" bindtap='handleMe'></view>
+</view>
+
+  <!-- 上拉加载 -->
+  <view wx:if="{{!isloading}}">
+    <view class='loading-more' wx:if="{{hasMore}}">
+      <image src='/static/img/loadingBottom.svg' class='loadmore-img'></image>
+      <text>正在拼命加载中</text>
+    </view>
+    <view class='no-more' wx:else>
+      <text class='no-more-text'>已全部加载</text>
+      <text class='line'></text>
+    </view>
+  </view>

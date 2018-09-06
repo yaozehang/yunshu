@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/details/details",
     "pages/catalog/catalog",
-    "pages/book/book"
+    "pages/book/book",
+    "pages/user/user"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,5 +13,4 @@
     "navigationBarTitleText": "IT随身看",
     "navigationBarTextStyle": "black"
   }
-
 }

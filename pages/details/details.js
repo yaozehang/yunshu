@@ -11,7 +11,7 @@ Page({
     bookData:{},
     isloading: false,
     isShow:false,
-    updateTime:""
+    updateTime:"",
   },
 
   /**
@@ -28,11 +28,11 @@ Page({
       isloading:true
     })
     fetch.get(`/book/${this.data.bookId}`).then(res=>{
-      console.log(res)
+      console.log(res.isCollect)
       this.setData({
         bookData: res,
         isloading: false,
-        updateTime: res.data.updateTime           
+        updateTime: res.data.updateTime,
       })
       this._update() 
     })
@@ -62,10 +62,37 @@ Page({
     })
   },
 
+  bookCollect(){
+    fetch.get('/collection',{
+      bookId:this.data.bookId
+    }).then(res =>{
+      if (res.code == 200) {
+        wx.showToast({
+          title: '收藏成功',
+          type: 'success',
+          duration: 1000
+        })
+      }
+      let bookData = {...this.data.bookData}
+      bookData.isCollect = 1
+      this.setData({
+        bookData:bookData
+      })
+    })
+  },
+
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: this.data.bookData.data.title,
+      path: `/pages/details/details?id=${this.data.bookId}`,
+      imageUrl:this.data.bookData.data.img
+    }
   }
 })
