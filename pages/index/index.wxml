@@ -39,12 +39,7 @@
   </view>
 </view>
 
-  <!-- 菜单 -->
-<view class="menu">
-    <view class="iconfont icon-shouye"></view>
-    <view class="iconfont icon-yuedu" bindtap="handleRead"></view>
-    <view class="iconfont icon-gerenzhongxin" bindtap='handleMe'></view>
-</view>
+
 
   <!-- 上拉加载 -->
   <view wx:if="{{!isloading}}">

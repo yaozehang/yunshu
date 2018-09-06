@@ -108,12 +108,5 @@ Page({
       })
     }
   },
-
-
-  handleMe(){
-    wx.redirectTo({
-      url: `/pages/user/user`,
-    })
-  }
   
 })

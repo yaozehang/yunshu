@@ -56,11 +56,6 @@ Page({
   onReachBottom: function () {
   
   },
-  handleFirst() {
-    wx.redirectTo({
-      url: `/pages/index/index`,
-    })
-  },
 
   /**
    * 用户点击右上角分享

@@ -1,0 +1,19 @@
+<!--pages/read/read.wxml-->
+<view class="container" wx:for="{{bookData}}" wx:key="{{index}}">
+<view class="read-l">
+  <image src='{{item.book.img}}'class="read-img"></image>
+</view>
+<view class="read-r">
+  <view class="read-title">{{item.book.title}}</view>
+  <view>
+      <view class="read-index">书籍{{item.title.index}}/{{item.title.total}}章节</view>
+      <progress percent="{{(item.title.index/item.title.total)*100}}" ></progress>
+      <view class="read-lastread">上次查看:{{item.title.title}}</view>
+    </view>
+    <view class="read-btn">
+    <button>继续阅读</button>
+    <button>查看文档</button>
+    </view>
+</view>
+</view>
+

@@ -5,12 +5,35 @@
     "pages/details/details",
     "pages/catalog/catalog",
     "pages/book/book",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/read/read"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "IT随身看",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/img/shouye.png",
+        "selectedIconPath": "static/img/shouye1.png"
+      },
+      {
+        "pagePath": "pages/read/read",
+        "text": "我的学习",
+        "iconPath": "static/img/yuedu.png",
+        "selectedIconPath": "static/img/yuedu1.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人中心",
+        "iconPath": "static/img/geren.png",
+        "selectedIconPath": "static/img/geren1.png"
+      }
+    ]
   }
 }

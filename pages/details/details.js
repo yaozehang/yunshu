@@ -28,7 +28,6 @@ Page({
       isloading:true
     })
     fetch.get(`/book/${this.data.bookId}`).then(res=>{
-      console.log(res.isCollect)
       this.setData({
         bookData: res,
         isloading: false,
@@ -38,7 +37,6 @@ Page({
     })
   },
   jumpCatalog(){
-    console.log(this.data.bookId)
     wx.navigateTo({
       url:`/pages/catalog/catalog?id=${this.data.bookId}`
     })
@@ -63,7 +61,7 @@ Page({
   },
 
   bookCollect(){
-    fetch.get('/collection',{
+    fetch.post('/collection',{
       bookId:this.data.bookId
     }).then(res =>{
       if (res.code == 200) {
@@ -85,10 +83,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
     return {
       title: this.data.bookData.data.title,
       path: `/pages/details/details?id=${this.data.bookId}`,

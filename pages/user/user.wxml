@@ -1,8 +1,3 @@
 <!--pages/user/user.wxml-->
 <text>pages/user/user.wxml</text>
   <!-- 菜单 -->
-<view class="menu">
-    <view class="iconfont icon-shouye" bindtap='handleFirst'></view>
-    <view class="iconfont icon-yuedu" bindtap="handleRead"></view>
-    <view class="iconfont icon-gerenzhongxin"></view>
-</view>

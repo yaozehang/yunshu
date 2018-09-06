@@ -1,0 +1,21 @@
+/* pages/read/read.wxss */
+
+.container{
+  display:flex;
+  justify-content:space-between;
+}
+
+.read-l .read-img{
+  width: 230rpx;
+  height:300rpx;
+  Box-Shadow: 10rpx 10rpx 5rpx #888888;
+}
+
+.read-r{
+  margin-left:50rpx;
+}
+
+.read-btn{
+  display:flex;
+  justify-content:space-between;
+}
