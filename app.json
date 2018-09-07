@@ -6,7 +6,8 @@
     "pages/catalog/catalog",
     "pages/book/book",
     "pages/user/user",
-    "pages/read/read"
+    "pages/read/read",
+    "pages/collect/collection"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -20,19 +21,22 @@
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "static/img/shouye.png",
-        "selectedIconPath": "static/img/shouye1.png"
+        "selectedIconPath": "static/img/shouye1.png",
+        "selectedColor":"#000"
       },
       {
         "pagePath": "pages/read/read",
         "text": "我的学习",
         "iconPath": "static/img/yuedu.png",
-        "selectedIconPath": "static/img/yuedu1.png"
+        "selectedIconPath": "static/img/yuedu1.png",
+        "selectedColor": "#000"
       },
       {
         "pagePath": "pages/user/user",
         "text": "个人中心",
         "iconPath": "static/img/geren.png",
-        "selectedIconPath": "static/img/geren1.png"
+        "selectedIconPath": "static/img/geren1.png",
+        "selectedColor": "#000"
       }
     ]
   }

@@ -1,19 +1,48 @@
 <!--pages/read/read.wxml-->
+  <!-- 下拉加载 -->
+  <view wx:if="{{isloading}}"class="loading-more">
+      <image src='/static/img/loadingBottom.svg' class='loadmore-img'></image>
+      <text>正在拼命加载中</text>
+  </view>
 <view class="container" wx:for="{{bookData}}" wx:key="{{index}}">
 <view class="read-l">
   <image src='{{item.book.img}}'class="read-img"></image>
 </view>
 <view class="read-r">
   <view class="read-title">{{item.book.title}}</view>
-  <view>
+  <view class="read-pro">
       <view class="read-index">书籍{{item.title.index}}/{{item.title.total}}章节</view>
-      <progress percent="{{(item.title.index/item.title.total)*100}}" ></progress>
-      <view class="read-lastread">上次查看:{{item.title.title}}</view>
+      <view class="read-progress">
+        <view class="read-p">
+          <progress percent="{{item.percent}}" active></progress> 
+        </view>
+        <text>已看</text>   
+        <text>{{item.percent}}%</text>   
+      </view>
+      <view class="read-down">
+        <view class="read-lastread">上次查看:{{item.title.title}}</view>
+        <view class="read-time">2小时前</view>
+      </view>
+
     </view>
     <view class="read-btn">
+    <navigator url="{{'/pages/book/book?id='+item.title._id+'&bookId='+item.book._id}}"  >
     <button>继续阅读</button>
-    <button>查看文档</button>
+    </navigator>
+    <navigator url="{{'/pages/details/details?id='+item.book._id}}">
+    <button>查看书籍</button> 
+    </navigator>
     </view>
 </view>
 </view>
+
+  <!-- 上拉加载 -->
+    <view class='loading-more'wx:if="{{hasMore}}">
+      <image src='/static/img/loadingBottom.svg' class='loadmore-img'></image>
+      <text>正在拼命加载中</text>
+    </view>
+    <view class='no-more' wx:else>
+      <text class='no-more-text'>已全部加载</text>
+      <text class='line'></text>
+    </view>
 

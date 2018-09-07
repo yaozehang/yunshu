@@ -13,6 +13,7 @@
 .book-t .img{
   width:220rpx;
   height:280rpx;
+  box-shadow: 0 0 10px #000;
 }
 
 .book-t .main-msg{

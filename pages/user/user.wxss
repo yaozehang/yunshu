@@ -1,1 +1,92 @@
 /* pages/user/user.wxss */
+.user{
+  display: flex;
+  flex-direction: column;
+  background: #00a1d6;
+  height:300rpx;
+}
+
+.userinfo {
+  display:flex;
+  margin-top:50rpx;
+  margin-left: 50rpx;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #fff;
+  margin-left: 10rpx;
+}
+
+.user-pro{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 60rpx;
+  margin-right:200rpx;
+}
+
+.user-pro .img{
+  width:50rpx;
+  height:50rpx;
+}
+
+.user-pro progress{
+  width:200rpx;
+  margin-left: 20rpx;
+}
+
+.user-down{
+  display:flex;
+  justify-content: space-between;
+  padding: 20rpx 150rpx;
+  color: #fff;
+  background: #00a1d6;  
+  border-top: 1rpx solid #fff;
+}
+
+.user-lv{
+  color: #fff;  
+}
+
+.use-data{
+  color: #fff;
+}
+
+.userinfo-text{
+  color: #fff;
+  font-size: 16px;
+  margin-top: 80rpx;
+}
+
+.loading{
+  height:300rpx;
+  width: 400rpx;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+}
+
+.loading-more {
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  height: 160rpx;
+}
+
+.loading-more .loadmore-img{
+  width:100rpx;
+  height:100rpx;
+}
+
+.loading-more text{
+  margin-left:20rpx;
+}

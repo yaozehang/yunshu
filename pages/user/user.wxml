@@ -1,3 +1,28 @@
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
-  <!-- 菜单 -->
+<view wx:if="{{isloading}}" class="loading-more">
+  <image src='/static/img/loadingBottom.svg' class='loadmore-img'></image>
+  <text>正在拼命加载中</text>
+</view>
+
+<view class="container-user">
+  <view class="user">
+    <view class="userinfo">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-text">简介:这个人太懒了,什么都没写</text>
+    </view>
+     <view class="user-pro">
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <image class="img" src="{{isMan ? '/static/img/nan.svg' : '/static/img/nv.svg'}}"></image>
+        <progress percent="{{0}}" color="#f00"></progress>
+        <text class="user-lv">lv0</text>
+     </view>
+      
+  </view>
+<view class="user-down">
+    <view class="user-collect" bindtap="handleCollect">{{collectNum}}收藏</view>
+    <view class="user-follow">7w关注</view>
+</view>
+
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+
+</view>

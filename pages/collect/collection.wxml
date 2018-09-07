@@ -1,0 +1,27 @@
+<!--pages/collect/collection.wxml-->
+<view wx:if="{{isloading}}" class="loading-more">
+  <image src='/static/img/loadingBottom.svg' class='loadmore-img'></image>
+  <text>正在拼命加载中</text>
+</view>
+
+<view class="container">
+  <view class="collect-book" wx:for="{{collectData}}" wx:key="{{index}}">
+      <image src="{{item.book.img}}" class="collect-img" bindtap="{{isShow ?'': 'handleBook'}}" data-id="{{item.book._id}}" bindlongpress="deleteBox" ></image>
+      <view class="collect-title">{{item.book.title}}</view>
+    <!-- 删除 -->
+    <view wx:if="{{isShow}}" class="collect-delete">
+      <image src='/static/img/shanchu.svg' class="img" bindtap="deleteBook" data-id="{{item.book._id}}"></image>
+    </view>
+  </view>
+</view>
+
+
+<!-- 上拉加载 -->
+<view class='loading-more' wx:if="{{hasMore}}">
+  <image src='/static/img/loadingBottom.svg' class='loadmore-img'></image>
+  <text>正在拼命加载中</text>
+</view>
+<view class='no-more' wx:else>
+  <text class='no-more-text'>已全部加载</text>
+  <text class='line'></text>
+</view>

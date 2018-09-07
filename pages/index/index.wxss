@@ -27,6 +27,7 @@
 .content .box-l .img{
   width: 230rpx;
   height:300rpx;
+  box-shadow: 0 0 10px #000;
 }
 
 .content .box-r book-title{
@@ -99,11 +100,13 @@
 .no-more-text{
   position:relative;
   z-index:998;
-  width:200rpx;
+  width:300rpx;
+  background: #fff  
 }
 
 .line{
   position:absolute;
+  z-index:996;  
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);

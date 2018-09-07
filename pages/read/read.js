@@ -8,6 +8,8 @@ Page({
    */
   data: {
     bookData:[],
+    isloading:false,
+    hasMove:true,
   },
 
   /**
@@ -18,13 +20,47 @@ Page({
   },
 
   getData(){
-    fetch.get('/readList').then(res => {
-        console.log(res)
+    return new Promise(resovle =>{
+      fetch.get('/readList').then(res => {
+        resovle();
+        console.log(res.data);
+        let Data = res.data
+        for (let i = 0; i < Data.length; i++) {
+          let index = Data[i].title.index
+          let total = Data[i].title.total
+          let percent = Math.floor((index/total)*100)
+          Data[i].percent = percent
+         }
+        console.log(Data)
         this.setData({
-          bookData:res.data
+          bookData: Data,
         })
-      })
+     })    
+    })
   },
+
+  onPullDownRefresh(){
+    this.setData({
+      isloading: true
+    })
+    this.getData().then(() => {
+      this.setData({
+        isloading:false
+      })
+      wx.stopPullDownRefresh()      
+    })
+  },
+  onReachBottom(){
+    this.setData({
+      hasMore: true
+    })
+    this.getData().then(() => {
+      this.setData({
+        hasMore: false
+      })
+    })
+  },
+
 
   /**
    * 用户点击右上角分享

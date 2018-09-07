@@ -1,60 +1,78 @@
 // pages/user/user.js
+import {fetch} from "../../utils/util.js"
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    isMan:true,
+    collectNum:0,
+    isloading: false,       
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getData()
+    this.getCollection()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  getData(){
+    return new Promise((resolve)=>{
+      resolve()
+      wx: wx.getUserInfo({
+        success: res => {
+          this.setData({
+            userInfo: res.userInfo
+          })
+          this.isMan()
+        },
+      })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  getCollection(){
+    fetch.get('/collection/total').then(res=>{
+      this.setData({
+        collectNum:res.data
+      })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  isMan(){
+    if(this.data.userInfo.gender == 1){
+      this.setData({
+        isMan : true
+      })
+    }else{
+      this.setData({
+        isMan : false
+      })
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
+  handleCollect(){
+    wx.navigateTo({
+      url: '/pages/collect/collection',
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
+  onPullDownRefresh() {
+    this.setData({
+      isloading: true
+    })
+    this.getData().then(() => {
+      this.setData({
+        isloading: false
+      })
+      wx.stopPullDownRefresh()
+    })
   },
 
   /**

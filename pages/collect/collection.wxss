@@ -1,64 +1,37 @@
-/* pages/read/read.wxss */
-
+/* pages/collect/collection.wxss */
 .container{
-  display:flex;
-  padding-top:10rpx;
-  margin-bottom:20rpx;  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top:20rpx
 }
 
-.read-l .read-img{
+.container .collect-img{
   width: 230rpx;
   height:300rpx;
   box-shadow: 0 0 10px #000;
 }
 
-.read-r{
- width:750rpx;
- margin-left:20rpx;
- display: flex;
- flex-direction:column;
- justify-content:space-between; 
+.collect-book{
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  width:300rpx;
+  height:350rpx;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-top:5rpx;
+  position:relative;
 }
 
-.read-lastread{
-  width:300rpx;
+.collect-title{
+  font-size:14px;
   display:-webkit-box;
   -webkit-box-orient:vertical;
   -webkit-line-clamp:1;
   overflow:hidden;
 }
 
-.read-btn{
-  display:flex;
-  justify-content:space-between;
-}
-
-.read-btn button{
-  margin: 0 20rpx;
-  color:#333;
-  width:180rpx;
-  font-size:12px;
-  background: #f1f1f1;
-  border:1px solid #e9e9e9;
-}
-
-.read-title{
-  font-size: 14px;
-}
-
-.read-index{
-  font-size:12px;
-  color:#c1c1c1;
-  margin-bottom:40rpx;
-}
-
-.read-down{
-  font-size:10px;
-  margin-top:30rpx;
-  color:#c1c1c1;
-  display: flex;
-  justify-content:space-between;
-}
 
 .loading{
   height:300rpx;
@@ -116,17 +89,12 @@
   background:#e9e9e9;
 }
 
-.read-progress{
-  align-items: center;
-  display: flex;
-  justify-content: space-between
+.collect-delete .img{
+  width:50rpx;
+  height:50rpx;
+  z-index:998;
+  position:absolute;
+  top:-25rpx;
+  right:0;
 }
 
-.read-p{
-  width:350rpx;
-}
-
-.read-progress text{
-  font-size:12px;
-  color:#c1c1c1;
-}

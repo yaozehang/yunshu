@@ -32,6 +32,9 @@ const fetch = {
   },
   post(url,data){
     return this.http(url,'POST',data)
+  },
+  delete(url,data){
+    return this.http(url,'DELETE',data)
   }
 }
 
