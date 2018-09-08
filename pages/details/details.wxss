@@ -131,3 +131,7 @@
   -webkit-line-clamp:3;
    overflow:hidden;
 }
+
+.button-hover{
+  background-color: #4096ff;    
+}

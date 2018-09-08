@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-import {fetch,login} from "../../utils/util.js"
+import {fetch,login,updateTime} from "../../utils/util.js"
 const app = getApp()
 
 Page({
@@ -37,8 +37,15 @@ Page({
     return new Promise((resolve,reject)=>{
       fetch.get('/category/books').then(res => {
         resolve()
+        let newData = res.data
+        for (let i = 0; i < newData.length;i++){
+          for (let j = 0; j < newData [i].books.length;j++){
+            let Time = newData [i].books[j].updateTime
+            newData [i].books[j].timeStr = updateTime(Time);
+          }
+        }
         this.setData({
-          mainContent: res.data,
+          mainContent: newData,
         })
       }).catch(err=>{
         reject(reject)
@@ -86,6 +93,12 @@ Page({
     return new Promise((resolve) => {
       fetch.get('/category/books', { pn: this.data.pn }).then(res => {
          let newArr = [...this.data.mainContent,...res.data]
+        for (let i = 0; i < newArr.length; i++) {
+          for (let j = 0; j < newArr[i].books.length; j++) {
+            let Time = newArr[i].books[j].updateTime
+            newArr[i].books[j].timeStr = updateTime(Time);
+          }
+        }
         this.setData({
           mainContent: newArr,
         })

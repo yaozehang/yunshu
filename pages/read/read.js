@@ -1,5 +1,5 @@
 // pages/read/read.js
-import {fetch} from '../../utils/util.js'
+import {fetch,updateTime} from '../../utils/util.js'
 
 Page({
 
@@ -23,18 +23,19 @@ Page({
     return new Promise(resovle =>{
       fetch.get('/readList').then(res => {
         resovle();
-        console.log(res.data);
         let Data = res.data
         for (let i = 0; i < Data.length; i++) {
           let index = Data[i].title.index
           let total = Data[i].title.total
           let percent = Math.floor((index/total)*100)
           Data[i].percent = percent
-         }
-        console.log(Data)
+          let Time = Data[i].updatedTime
+          Data[i].timeStr = updateTime(Time); 
+         } 
         this.setData({
           bookData: Data,
         })
+
      })    
     })
   },
@@ -50,6 +51,7 @@ Page({
       wx.stopPullDownRefresh()      
     })
   },
+
   onReachBottom(){
     this.setData({
       hasMore: true
@@ -60,7 +62,6 @@ Page({
       })
     })
   },
-
 
   /**
    * 用户点击右上角分享

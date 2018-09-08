@@ -27,6 +27,7 @@
                 <text class="author-l">{{item.author}}</text>
                 <view class="author-r">
                   <text class="update">
+                    {{item.timeStr}}
                   </text>
                   <text class="category">{{i.title}}</text>
                   <text class="many">{{item.looknums}}人在看</text>

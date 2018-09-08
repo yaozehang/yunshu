@@ -90,3 +90,15 @@
 .loading-more text{
   margin-left:20rpx;
 }
+
+.working{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top:60rpx;
+}
+
+.working text{
+  color: #00a1d6;    
+}

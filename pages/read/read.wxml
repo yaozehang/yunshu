@@ -21,7 +21,7 @@
       </view>
       <view class="read-down">
         <view class="read-lastread">上次查看:{{item.title.title}}</view>
-        <view class="read-time">2小时前</view>
+        <view class="read-time">{{item.timeStr}}</view>
       </view>
 
     </view>

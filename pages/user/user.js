@@ -63,6 +63,14 @@ Page({
     })
   },
 
+  show(){
+    wx.showToast({
+      title: '暂无关注',
+      icon: 'none',
+      duration: 1000
+    })
+  },
+
   onPullDownRefresh() {
     this.setData({
       isloading: true
